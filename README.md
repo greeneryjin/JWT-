@@ -1,6 +1,5 @@
 # JWT
-spring-security와 OAuth2.0, JWT 토큰을 사용해서 로그인 기능 만들기  
-
+Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자체적인 JWT 토큰을 사용해서 로그인 기능만들기  
 
 사용 언어
 - JAVA 8
