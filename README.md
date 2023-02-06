@@ -32,7 +32,41 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 ## 로그인 시퀀스 다이어그램
 ![Untitled](https://user-images.githubusercontent.com/87289562/216900238-a2d36691-515b-4e78-bdf9-ee72db70f87d.png)
 
+토큰 발급
+```java
+    @Value("${jwt.secret}")
+    private String secret;
+    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String HEADER_STRING = "Authorization";
 
+    //액세스 토큰 발급
+    public String createAccessToken(String account){
+        Algorithm algorithm = Algorithm.HMAC256(secret.getBytes());
+        String accessToken = JWT.create()
+                .withSubject(account)
+                .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 9999))
+                .sign(algorithm);
+        return accessToken;
+    }
+
+    //리프레시 토큰 발급
+    public String createRefreshToken(String account) {
+        Algorithm algorithm = Algorithm.HMAC256(secret.getBytes());
+        String refreshToken = JWT.create()
+                .withSubject(account)
+                .withExpiresAt(new Date(System.currentTimeMillis() + + 100000 * 60 * 60 * 1000))
+                .sign(algorithm);
+        return refreshToken;
+    }
+
+    // 토큰 검증 
+    public JWTVerifier verifierToken(){
+        Algorithm algorithm = Algorithm.HMAC256(secret.getBytes());
+        JWTVerifier verifier = JWT.require(algorithm).build();
+        return verifier;
+    }
+
+```
 
 사용자 인증
 ```java
