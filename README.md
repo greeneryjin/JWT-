@@ -29,15 +29,18 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 ![Untitled](https://user-images.githubusercontent.com/87289562/216900238-a2d36691-515b-4e78-bdf9-ee72db70f87d.png)
 
 
-사용자 인증 
-'@Override
-'public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-'  LoginDto loginDto = om.readValue(request.getReader(), LoginDto.class);
-'  if(StringUtils.isEmpty(loginDto.getSnsId()) || StringUtils.isEmpty(loginDto.getName())){
-'      throw new IllegalAccessException("사용자 입력값이 없습니다.");
-'  }
-'     //인증 전 token 객체 생성
-'     JwtUsernamePasswordAuthenticationToken token = new JwtUsernamePasswordAuthenticationToken(loginDto.getSnsId(),loginDto.getName());
-'     //인증 처리를 위해 AuthenticationManager 에게 위임.
-'     return getAuthenticationManager().authenticate(token);
-'}
+사용자 인증
+''' 
+ @Override
+ public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+   LoginDto loginDto = om.readValue(request.getReader(), LoginDto.class);
+   if(StringUtils.isEmpty(loginDto.getSnsId()) || StringUtils.isEmpty(loginDto.getName())){
+       throw new IllegalAccessException("사용자 입력값이 없습니다.");
+   }
+      //인증 전 token 객체 생성
+      JwtUsernamePasswordAuthenticationToken token = new JwtUsernamePasswordAuthenticationToken(loginDto.getSnsId(),loginDto.getName());
+      
+      //인증 처리를 위해 AuthenticationManager 에게 위임.
+      return getAuthenticationManager().authenticate(token);
+  }
+'''
