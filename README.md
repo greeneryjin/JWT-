@@ -77,7 +77,7 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 
 jwt 토큰 예시
 ```
-accessToken  :eyJhbGgcegfgeffcedftqazwscdrdsfgsdsevbgyrbnccuiojnmbvbvhyurffdcdvvzxcvwedfuuvgrtvfmJLWlJMRDVhRTgiLCJleHAiOjE2NzU3NDEzNDl9.JDPsm5LUHtc1TzrFmuIxKCBG5hnZ-B7YYXpumg4-bCF-sfdffdfgdftg6IlFSNzBUS2ZacjVfcWp4U3J5VHQ5R
+accessToken  : eyJhbGgcegfgeffcedftqazwscdrdsfgsdsevbgyrbnccuiojnmbvbvhyurffdcdvvzxcvwedfuuvgrtvfmJLWlJMRDVhRhU3NDEzNDl9.JDPsm5LUHtc1TzrFmuIxKCBG5hnZ-B7YYXpumg4-bCF-sfdffdfgdftg6IlFSNzBUS2ZacjVfcWp4U3J5VHQ5R
 
 refreshToken : eyiJ9US2ZacjVfc4U3J.eyatc1TzrFmuKCBG5hn2tzODlkVk5pamJGGFTRLWlJMRDVhRTgiLCB7YYXpumg4JleHAiOjE2NzU3NDEzNDl9.zbnNJZCgrrtthytfdgbfdgm5LUHJ-ThfID2QDPs-bCF-DFGFddrafgdftg6IlVHQ5RFSNzB5aaGciOiJIUzUxM
 ```
