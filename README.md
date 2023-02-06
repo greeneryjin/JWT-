@@ -30,17 +30,42 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 
 
 사용자 인증
-''' 
- @Override
- public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-   LoginDto loginDto = om.readValue(request.getReader(), LoginDto.class);
-   if(StringUtils.isEmpty(loginDto.getSnsId()) || StringUtils.isEmpty(loginDto.getName())){
-       throw new IllegalAccessException("사용자 입력값이 없습니다.");
-   }
-      //인증 전 token 객체 생성
-      JwtUsernamePasswordAuthenticationToken token = new JwtUsernamePasswordAuthenticationToken(loginDto.getSnsId(),loginDto.getName());
-      
-      //인증 처리를 위해 AuthenticationManager 에게 위임.
-      return getAuthenticationManager().authenticate(token);
-  }
+
 '''
+
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletExceptio
+    {
+        LoginDto loginDto = om.readValue(request.getReader(), LoginDto.class);
+        if(StringUtils.isEmpty(loginDto.getSnsId()) || StringUtils.isEmpty(loginDto.getName())){
+            throw new IllegalAccessException("사용자 입력값이 없습니다.");
+        }
+        //인증 전 token 객체 생성
+        JwtUsernamePasswordAuthenticationToken token = new JwtUsernamePasswordAuthenticationToken(loginDto.getSnsId(),loginDto.getName());
+        //인증 처리를 위해 AuthenticationManager 에게 위임.
+        return getAuthenticationManager().authenticate(token);
+    }
+'''
+
+사용자 인증 후, jwt 토큰 발급
+'''
+
+    //인증 완료 후 response jwt 토큰 발행
+    @Override
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response
+            , FilterChain chain, Authentication authResult) throws IOException, ServletException {
+        Account principal = (Account) authResult.getPrincipal();
+        String accessToken = jwtProperties.createAccessToken(principal.getSnsId());
+        String refreshToken = jwtProperties.createRefreshToken(principal.getSnsId());
+
+        //맵에 넣기.
+        Map<String, String> tokens = new HashMap<>();
+        tokens.put("access_token", accessToken);
+        tokens.put("refresh_token", refreshToken);
+
+        //반환에 값을 넣어줌.
+        ResponseResult result = new ResponseResult();
+        result.createResponse(response, tokens, jwtProperties);
+    }
+'''
+
