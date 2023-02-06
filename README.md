@@ -24,4 +24,4 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 
 * 카카오에서 제공하는 jwt를 사용하는 것이 아닌 스프링 서버에서 자제척으로 만든 토큰으로 로그인을 합니다.
 
-
+![Untitled](https://user-images.githubusercontent.com/87289562/216900238-a2d36691-515b-4e78-bdf9-ee72db70f87d.png)
