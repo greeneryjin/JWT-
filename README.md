@@ -31,7 +31,7 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 
 사용자 인증
 
-'''
+'''java
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletExceptio
@@ -48,7 +48,7 @@ Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자�
 '''
 
 사용자 인증 후, jwt 토큰 발급
-'''
+'''java
 
     //인증 완료 후 response jwt 토큰 발행
     @Override
