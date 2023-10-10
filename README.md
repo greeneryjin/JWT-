@@ -1,21 +1,24 @@
 # JWT
-Android로 카카오 로그인을 한 후, 카카오 정보를 바탕으로 자체적인 JWT 토큰을 사용해서 로그인 기능만들기  
+Android에서 카카오 로그인을 한 후, 카카오에서 전달한 개인 정보로 서버에서 자체적인 JWT 토큰을 발급하여 로그인 기능만들기  
 
 사용 언어
+```
 - JAVA 8
-
+```
 
 사용 기술
-- spring-boot
-- spring
+```
+- springboot
 - spring-security
 - JWT
 - H2
-
+```
 
 라이브러리
+```
 - lombok
 - gradle
+```
 
 
 구현 순서도 
