@@ -24,10 +24,11 @@ Android에서 카카오 로그인을 한 후, 카카오에서 전달한 개인 �
 구현 순서도 
 1. 안드로이드를 사용해서 카카오에게 회원 정보를 요청합니다.
 2. 카카오 회원 정보를 스프링 서버로 받습니다.
-3. 카카오 ID를 기반으로 스프링 서버에서 자체적인 JWT 토큰을 발급합니다. 
-4. 토큰은 총 두 가지로 accessToken, refreshToken입니다. 
-5. accessToken으로 로그인 
-6. accessToken 만료 시 refreshToken으로 재 로그인 
+3. 카카오에게 정보를 전달한 후, 카카오 토큰을 받습니다.
+4. 카카오 토큰의 카카오 ID를 기반으로 스프링 서버에서 자체적인 JWT 토큰을 발급합니다. 
+5. 토큰은 총 두 가지로 accessToken, refreshToken입니다. 
+6. accessToken으로 로그인 
+7. accessToken 만료 시 refreshToken으로 재 로그인 
 
 * 카카오에서 제공하는 토큰을 사용하는 것이 아닌 저희 서버에서 자제척으로 만든 jwt 토큰으로 로그인을 합니다.
 
