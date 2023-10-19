@@ -120,7 +120,11 @@ accessToken  : eyJhbGgcegfgeffcedftqazwscdrdsfgsdsevbgyrbnccuiojnmbvbvhyurffdcdv
 refreshToken : eyiJ9US2ZacjVfc4U3J.eyatc1TzrFmuKCBG5hn2tzODlkVk5pamJGGFTRLWlJMRDVhRTgiLCB7YYXpumg4JleHAiOjE2NzU3NDEzNDl9.zbnNJZCgrrtthytfdgbfdgm5LUHJ-ThfID2QDPs-bCF-DFGFddrafgdftg6IlVHQ5RFSNzB5aaGciOiJIUzUxM
 ```
 
-로그인 화면 app
+#### 로그인 화면
+
 <img width="258" alt="늘솔길" src="https://user-images.githubusercontent.com/87289562/218096760-5e32d131-f486-44f4-bf7f-15c6243f07fa.PNG">
 
+
+#### 로그인 처리 완료 후 화면
+![main](https://github.com/greeneryjin/JWT-OAuth2.0-Login/assets/87289562/9ca38ab6-cc09-440f-b733-f17e4df0c174)
 
